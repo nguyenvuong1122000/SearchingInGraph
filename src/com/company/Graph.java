@@ -1,5 +1,4 @@
 package com.company;
-
 import java.io.File;
 import java.util.*;
 import java.io.FileNotFoundException;
@@ -73,11 +72,12 @@ public class Graph {
     }
 
     public LinkedList<Vertice> FindWay(String s1, String s2) {
+        LinkedList<Vertice> result = new LinkedList<>();
         for (Vertice abc : verticeList) {
             abc.parent = null;
-
         }
-        LinkedList<Vertice> result = new LinkedList<>();
+        try{
+
         Vertice vertice1 = verticeMap.get(s1);
         Vertice vertice2 = verticeMap.get(s2);
         if (vertice1.ccnum == vertice2.ccnum) {
@@ -98,6 +98,10 @@ public class Graph {
             }
             result.add(vertice1);
             Collections.reverse(result);
+        }
+        }
+        catch (Exception e){
+            System.out.println("Check du lieu nhap vao");
         }
         return result;
     }

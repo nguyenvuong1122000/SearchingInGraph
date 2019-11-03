@@ -5755,6 +5755,3 @@ roble
 rumba
 biffy
 pupal
-where
-whtre
-whtrv
