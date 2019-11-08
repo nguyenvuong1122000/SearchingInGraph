@@ -1,17 +1,11 @@
 package com.company;
-import static com.company.Graph.getccNum;
-import static com.company.Vertice.*;
+import static com.company.Graph.*;
 import java.io.File;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
-        Calendar calendar = new GregorianCalendar();
-        long begin = calendar.getInstance().getTimeInMillis();
         File file = new File(System.getProperty("user.dir") + "/INPUT//sgb-words.txt");
         Graph graph = new Graph(file);
 
@@ -25,8 +19,5 @@ public class Main {
         String b = sc.nextLine();
         graph.FindWay(a,b);
         sc.close();
-
-        long end = calendar.getInstance().getTimeInMillis();
-
     }
 }
