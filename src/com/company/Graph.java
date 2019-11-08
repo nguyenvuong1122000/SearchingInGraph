@@ -2,6 +2,7 @@ package com.company;
 import java.io.File;
 import java.util.*;
 import java.io.FileNotFoundException;
+import static com.company.Vertice.print;
 
 public class Graph {
 
@@ -76,29 +77,29 @@ public class Graph {
         for (Vertice abc : verticeList) {
             abc.parent = null;
         }
-        try{
-
-        Vertice vertice1 = verticeMap.get(s1);
-        Vertice vertice2 = verticeMap.get(s2);
-        if (vertice1.ccnum == vertice2.ccnum) {
-            verticeQueue.add(vertice1);
-            while (verticeQueue.size() != 0) {
-                Vertice v3 = verticeQueue.poll();
-                for (Vertice _adjVertice : v3.adjVertice) {
-                    if ((_adjVertice.parent == null) && (_adjVertice != vertice1)) {
-                        verticeQueue.add(_adjVertice);
-                        _adjVertice.parent = v3;
+        try {
+            Vertice vertice1 = verticeMap.get(s1);
+            Vertice vertice2 = verticeMap.get(s2);
+            if (vertice1.ccnum == vertice2.ccnum) {
+                verticeQueue.add(vertice1);
+                while (verticeQueue.size() != 0) {
+                    Vertice v3 = verticeQueue.poll();
+                    for (Vertice _adjVertice : v3.adjVertice) {
+                        if ((_adjVertice.parent == null) && (_adjVertice != vertice1)) {
+                            verticeQueue.add(_adjVertice);
+                            _adjVertice.parent = v3;
+                        }
                     }
                 }
+                Vertice v1 = vertice2;
+                while (v1 != vertice1) {
+                    result.add(v1);
+                    v1 = v1.parent;
+                }
+                result.add(vertice1);
+                Collections.reverse(result);
             }
-            Vertice v1 = vertice2;
-            while (v1 != vertice1) {
-                result.add(v1);
-                v1 = v1.parent;
-            }
-            result.add(vertice1);
-            Collections.reverse(result);
-        }
+            print(result);
         }
         catch (Exception e){
             System.out.println("Check du lieu nhap vao");

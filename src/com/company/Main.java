@@ -24,6 +24,7 @@ public class Main {
         String a = sc.nextLine();
         String b = sc.nextLine();
         graph.FindWay(a,b);
+        sc.close();
 
         long end = calendar.getInstance().getTimeInMillis();
 
