@@ -19,5 +19,6 @@ public class Main {
         String b = sc.nextLine();
         graph.FindWay(a,b);
         sc.close();
+
     }
 }
